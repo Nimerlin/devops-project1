@@ -5,7 +5,7 @@ registryCredential = 'nitin-dockerhub'
 dockerImage = ''
 }
 agent any
-stages {
+stages{
 stage('Cloning Git') {
 steps {
 checkout scm
