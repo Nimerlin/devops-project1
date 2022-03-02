@@ -1,6 +1,6 @@
 pipeline {
 environment {
-imagename = "nimetlin/ubuntu:20.04"
+imagename = "ubuntu:20.04"
 registryCredential = 'nitin-dockerhub'
 dockerImage = ''
 }
