@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 RUN yum update && yum install -
-    rsyslog \
     which \
     tar \ 
     hostname \
