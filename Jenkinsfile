@@ -1,39 +1,37 @@
-pipeline {
+Pipeline
+{
 environment {
-imagename = "ubuntu:20.04"
-registryCredential = 'nitin-dockerhub'
+registry = "nimerlin/assign"
+registryCredential = 'dockerhub_id'
 dockerImage = ''
 }
 agent any
-stages{
-stage('Cloning Git') {
+stages {
+stage('Cloning our Git') {
 steps {
 checkout scm
 }
 }
-stage('Building image') {
+stage('Building our image') {
 steps{
 script {
-dockerImage = docker.build imagename
+dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
 }
 }
-stage('Deploy Image') {
+stage('Deploy our image') {
 steps{
 script {
-docker.withRegistry( '', registryCredential ){
-dockerImage.push("$BUILD_NUMBER")
-dockerImage.push('latest')
+docker.withRegistry( '', registryCredential ) {
+dockerImage.push()
 }
 }
 }
 }
-stage('Remove Unused docker image') {
+stage('Cleaning up') {
 steps{
-sh "docker rmi $imagename:$BUILD_NUMBER"
-sh "docker rmi $imagename:latest"
+sh "docker rmi $registry:$BUILD_NUMBER"
 }
 }
 }
 }
- 
