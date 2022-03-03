@@ -7,7 +7,7 @@ dockerImage = ''
 }
 agent any
 stages{
-stage('Cloning our Git'){
+stage('Cloning our Git') {
 steps {
 git([url: 'https://github.com/Nimerlin/devops-project1.git', branch: 'main', credentialsId: 'token_api_for_cicd'])
 }
