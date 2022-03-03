@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 RUN yum update && yum install httpd -y
 COPY index.html /var/www/html/
 
