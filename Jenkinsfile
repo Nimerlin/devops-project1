@@ -2,14 +2,14 @@ Pipeline
 {
 environment {
 registry = "nimerlin/assign"
-registryCredential = 'dockerhub_id'
+registryCredential = 'nitin-dockerhub'
 dockerImage = ''
 }
 agent any
 stages {
 stage('Cloning our Git'){
 steps {
-checkout scm
+git([url: 'https://github.com/nimerlin/devops-project1.git', branch: 'main', credentialsId: 'token_api_for_cicd'])
 }
 }
 stage('Building our image') {
@@ -28,10 +28,6 @@ dockerImage.push()
 }
 }
 }
-stage('Cleaning up') {
-steps{
-sh "docker rmi $registry:$BUILD_NUMBER"
-}
-}
+
 }
 }
