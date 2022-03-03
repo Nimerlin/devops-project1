@@ -7,7 +7,7 @@ dockerImage = ''
 }
 agent any
 stages {
-stage('Cloning our Git') {
+stage('Cloning our Git'){
 steps {
 checkout scm
 }
