@@ -28,6 +28,12 @@ dockerImage.push()
 }
 }
 }
-
+stage('Run Docker container on remote hosts') {
+             
+            steps {
+                sh "docker -H ssh://nitin@13.233.166.18 run -d -p 80:80 nimerlin/httpd"
+ 
+            }
+        }
 }
 }
