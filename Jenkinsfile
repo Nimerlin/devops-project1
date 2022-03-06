@@ -40,7 +40,7 @@ stage('Run Docker container on same instance') {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
-        
+  }
 
   
   
