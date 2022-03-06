@@ -35,7 +35,7 @@ stage('Run Docker container on same instance') {
                  sh 'docker run -p 666:80 nimerlin/assign'
               }
             }
-        }
+        
 
   
   
