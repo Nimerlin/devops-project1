@@ -31,7 +31,7 @@ dockerImage.push()
 stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://neha@13.235.42.172 run -d -p 80:80 nimerlin/httpd"
+                sh "docker run -d -p 80:80 nimerlin/httpd"
  
             }
         }
