@@ -35,7 +35,7 @@ stage('Run Docker container on remote hosts') {
                     docker.withRegistry( '', registryCredential ){
                     dockerImages.pull()
                    }
- 
+              }
             }
         }
   stage('Remove Unused docker image') {
