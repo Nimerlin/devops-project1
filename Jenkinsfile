@@ -32,7 +32,7 @@ stage('Run Docker container on same instance') {
              
             steps {
               
-                 sh "docker run -itd -p 666:80 $registry:$BUILD_NUMBER"
+                 sh "docker run -it -p 666:80 $registry:$BUILD_NUMBER"
               
             }
           }
