@@ -28,16 +28,15 @@ dockerImage.push()
 }
 }
 }
-stage('Run Docker container') {
+stage('Run Docker container on same instance') {
              
             steps {
-              script {
-                    docker.withRegistry( '', registryCredential ){
-                    dockerImage.pull()
-                   }
+              
+                 sh 'docker run -p 666:80 nimerlin/assign'
               }
             }
         }
+
   
   
 }
