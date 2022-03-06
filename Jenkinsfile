@@ -28,7 +28,7 @@ dockerImage.push()
 }
 }
 }
-stage('Run Docker container on remote hosts') {
+stage('Run Docker container') {
              
             steps {
               script {
