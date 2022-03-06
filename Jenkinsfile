@@ -32,9 +32,14 @@ stage('Run Docker container on same instance') {
              
             steps {
               
-                 sh 'docker run -d -p 666:80 nimerlin/assign:latest'
-              }
+                 sh "docker run -d -p 666:80 $registry:$BUILD_NUMBER"
+              
             }
+          }
+  stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
         
 
   
