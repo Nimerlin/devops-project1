@@ -31,7 +31,10 @@ dockerImage.push()
 stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker run -d -p 80:80 nimerlin/httpd"
+              script {
+                    //docker.withRegistry( '', registryCredential ){
+                      sh "docker run -d -p 80:80 nimerlin/httpd", registryCredential
+                  //  }
  
             }
         }
