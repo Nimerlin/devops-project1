@@ -33,7 +33,7 @@ stage('Run Docker container on remote hosts') {
             steps {
               script {
                     docker.withRegistry( '', registryCredential ){
-                    dockerImages.pull()
+                    dockerImage.pull()
                    }
               }
             }
