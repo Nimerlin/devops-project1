@@ -6,7 +6,7 @@ RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd
 RUN yum -y install httpd
 RUN yum install initscripts -y
 CMD echo "Hello World"
-ENTRYPOINT ["systemctl httpd start"]
+CMD ["systemctl httpd start"]
 COPY index.html /var/www/html/
 EXPOSE 80
 
