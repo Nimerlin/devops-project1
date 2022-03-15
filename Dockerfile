@@ -5,3 +5,7 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
 RUN yum -y install httpd
 CMD echo "Hello World"
+ENTRYPOINT ["systemctl httpd start"]
+COPY index.html /var/www/html/
+EXPOSE 80
+
