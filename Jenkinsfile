@@ -32,7 +32,7 @@ stage('Run Docker container on same instance') {
              
             steps {
               
-                 sh "docker run -d --name $BUILD_NUMBER -p 80:80 $registry:$BUILD_NUMBER sleep 8000"
+                 sh "docker run -d --name $BUILD_NUMBER -p 80:80 --privileged=true $registry:$BUILD_NUMBER sleep 8000"
                   
               
             }
