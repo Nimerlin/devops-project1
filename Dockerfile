@@ -1,14 +1,3 @@
 FROM centos:latest
-RUN cd /etc/yum.repos.d/
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
-ENV container docker
-RUN yum update -y
-RUN yum install httpd -y
-RUN yum install initscripts -y
-CMD chkconfig --levels 235 httpd on
-ENTRYPOINT ["/usr/sbin/init"]
-CMD ["systemctl httpd start"] 
-COPY index.html /var/www/html/
-EXPOSE 80
+RUN yum -y install httpd
+CMD echo "Hello World"
