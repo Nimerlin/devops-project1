@@ -1,4 +1,4 @@
-FROM centos/systemd
+FROM amazonlinux
 MAINTAINER Nitin
 RUN yum -y install httpd; yum clean all; systemctl enable httpd.service
 EXPOSE 80
