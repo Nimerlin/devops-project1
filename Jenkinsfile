@@ -29,15 +29,16 @@ dockerImage.push()
 }
 }
 stage('Run Docker container on same instance') {
-             
-            steps {
-              
-                 sh "docker run -d --name $BUILD_NUMBER -p 80:80 $registry:$BUILD_NUMBER  "
-              
-                  
-              
-            }
-          }
+steps {
+sh "docker run -d --name $BUILD_NUMBER -p 80:80 $registry:$BUILD_NUMBER  "
+}
+}
+stage('Remove Unused docker image') {
+steps{
+sh "docker rmi $registry:$BUILD_NUMBER"
+sh "docker rmi $registry:latest"
+}
+}
   
   
   
